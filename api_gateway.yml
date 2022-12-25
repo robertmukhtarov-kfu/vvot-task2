@@ -1,0 +1,22 @@
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
+servers:
+- url: https://d5drfo799drvv82lq8un.apigw.yandexcloud.net
+paths:
+  /:
+    get:
+      x-yc-apigateway-integration:
+        type: object-storage
+        bucket: itis-2022-2023-vvot13-faces
+        object: '{face}'
+        service_account_id: ajep92c4usqtbai2se53
+      parameters:
+      - explode: true
+        in: query
+        name: face
+        required: true
+        schema:
+          type: string
+        style: form
